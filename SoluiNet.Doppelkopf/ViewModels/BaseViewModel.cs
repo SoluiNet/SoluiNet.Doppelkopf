@@ -1,56 +1,65 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-
-using Xamarin.Forms;
-
-using SoluiNet.Doppelkopf.Models;
-using SoluiNet.Doppelkopf.Services;
+﻿// <copyright file="BaseViewModel.cs" company="SoluiNet">
+// Copyright (c) SoluiNet. All rights reserved.
+// </copyright>
 
 namespace SoluiNet.Doppelkopf.ViewModels
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Runtime.CompilerServices;
+
+    using SoluiNet.Doppelkopf.Models;
+    using SoluiNet.Doppelkopf.Services;
+
+    using Xamarin.Forms;
+
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
-
         private bool isBusy = false;
+        private string title = string.Empty;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public IDataStore<Item> DataStore
+        {
+            get { return DependencyService.Get<IDataStore<Item>>(); }
+        }
+
         public bool IsBusy
         {
-            get { return isBusy; }
-            set { SetProperty(ref isBusy, value); }
+            get { return this.isBusy; }
+            set { SetProperty(ref this.isBusy, value); }
         }
 
-        private string title = string.Empty;
         public string Title
         {
-            get { return title; }
-            set { SetProperty(ref title, value); }
+            get { return this.title; }
+            set { SetProperty(ref this.title, value); }
         }
 
-        protected bool SetProperty<T>(ref T backingStore, T value,
+        protected bool SetProperty<T>(
+            ref T backingStore,
+            T value,
             [CallerMemberName]string propertyName = "",
             Action onChanged = null)
         {
             if (EqualityComparer<T>.Default.Equals(backingStore, value))
+            {
                 return false;
+            }
 
             backingStore = value;
             onChanged?.Invoke();
-            OnPropertyChanged(propertyName);
+            this.OnPropertyChanged(propertyName);
             return true;
         }
 
-        #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var changed = PropertyChanged;
-            if (changed == null)
-                return;
 
-            changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            changed?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        #endregion
     }
 }

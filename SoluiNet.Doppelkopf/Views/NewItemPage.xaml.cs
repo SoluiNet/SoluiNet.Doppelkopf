@@ -1,42 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-using SoluiNet.Doppelkopf.Models;
+﻿// <copyright file="NewItemPage.xaml.cs" company="SoluiNet">
+// Copyright (c) SoluiNet. All rights reserved.
+// </copyright>
 
 namespace SoluiNet.Doppelkopf.Views
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+
+    using SoluiNet.Doppelkopf.Models;
+
+    using Xamarin.Forms;
+    using Xamarin.Forms.Xaml;
+
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
     public partial class NewItemPage : ContentPage
     {
-        public Item Item { get; set; }
-
         public NewItemPage()
         {
-            InitializeComponent();
+            this.InitializeComponent();
 
-            Item = new Item
+            this.Item = new Item
             {
                 Text = "Item name",
-                Description = "This is an item description."
+                Description = "This is an item description.",
             };
 
-            BindingContext = this;
+            this.BindingContext = this;
         }
+
+        public Item Item { get; set; }
 
         private async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddItem", Item);
-            await Navigation.PopModalAsync();
+            MessagingCenter.Send(this, "AddItem", this.Item);
+            await this.Navigation.PopModalAsync();
         }
 
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync();
+            await this.Navigation.PopModalAsync();
         }
     }
 }

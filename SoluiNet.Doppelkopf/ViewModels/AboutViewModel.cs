@@ -13,9 +13,9 @@ namespace SoluiNet.Doppelkopf.ViewModels
     {
         public AboutViewModel()
         {
-            Title = "About";
+            this.Title = "About";
 
-            OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://xamarin.com/platform")));
+            this.OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://xamarin.com/platform")));
         }
 
         public ICommand OpenWebCommand { get; }

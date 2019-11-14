@@ -1,16 +1,21 @@
-﻿using System;
-
-using SoluiNet.Doppelkopf.Models;
+﻿// <copyright file="ItemDetailViewModel.cs" company="SoluiNet">
+// Copyright (c) SoluiNet. All rights reserved.
+// </copyright>
 
 namespace SoluiNet.Doppelkopf.ViewModels
 {
+    using System;
+
+    using SoluiNet.Doppelkopf.Models;
+
     public class ItemDetailViewModel : BaseViewModel
     {
-        public Item Item { get; set; }
         public ItemDetailViewModel(Item item = null)
         {
-            Title = item?.Text;
-            Item = item;
+            this.Title = item?.Text;
+            this.Item = item;
         }
+
+        public Item Item { get; set; }
     }
 }
