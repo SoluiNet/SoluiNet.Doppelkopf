@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
-using UIKit;
+﻿// <copyright file="Main.cs" company="SoluiNet">
+// Copyright (c) SoluiNet. All rights reserved.
+// </copyright>
 
 namespace SoluiNet.Doppelkopf.iOS
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Foundation;
+    using UIKit;
+
     public class Application
     {
         // This is the main entry point of the application.

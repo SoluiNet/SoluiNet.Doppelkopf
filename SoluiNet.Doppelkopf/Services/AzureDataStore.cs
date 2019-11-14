@@ -1,14 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Xamarin.Essentials;
-using SoluiNet.Doppelkopf.Models;
+﻿// <copyright file="AzureDataStore.cs" company="SoluiNet">
+// Copyright (c) SoluiNet. All rights reserved.
+// </copyright>
 
 namespace SoluiNet.Doppelkopf.Services
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Newtonsoft.Json;
+    using Xamarin.Essentials;
+    using SoluiNet.Doppelkopf.Models;
+
     public class AzureDataStore : IDataStore<Item>
     {
         private readonly HttpClient client;
@@ -16,13 +20,16 @@ namespace SoluiNet.Doppelkopf.Services
 
         public AzureDataStore()
         {
-            client = new HttpClient();
-            client.BaseAddress = new Uri($"{App.AzureBackendUrl}/");
+            client = new HttpClient { BaseAddress = new Uri($"{App.AzureBackendUrl}/") };
 
             items = new List<Item>();
         }
 
-        private bool IsConnected => Connectivity.NetworkAccess == NetworkAccess.Internet;
+        private bool IsConnected
+        {
+            get { return Connectivity.NetworkAccess == NetworkAccess.Internet; }
+        }
+
         public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
         {
             if (forceRefresh && IsConnected)

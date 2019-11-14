@@ -1,0 +1,7 @@
+<StyleCopSettings Version="105">
+  <GlobalSettings>
+    <CollectionProperty Name="RecognizedWords">
+      <Value>iOS</Value>
+    </CollectionProperty>
+  </GlobalSettings>
+</StyleCopSettings> 

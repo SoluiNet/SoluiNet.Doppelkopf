@@ -1,10 +1,14 @@
-﻿using System;
-using System.Windows.Input;
-
-using Xamarin.Forms;
+﻿// <copyright file="AboutViewModel.cs" company="SoluiNet">
+// Copyright (c) SoluiNet. All rights reserved.
+// </copyright>
 
 namespace SoluiNet.Doppelkopf.ViewModels
 {
+    using System;
+    using System.Windows.Input;
+
+    using Xamarin.Forms;
+
     public class AboutViewModel : BaseViewModel
     {
         public AboutViewModel()

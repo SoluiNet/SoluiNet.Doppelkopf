@@ -1,4 +1,4 @@
-// <copyright file="MainActivity.cs" company="SoluiNet">
+// <copyright file="AssemblyInfo.cs" company="SoluiNet">
 // Copyright (c) SoluiNet. All rights reserved.
 // </copyright>
 
