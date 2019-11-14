@@ -1,12 +1,16 @@
-﻿using System;
-using Xamarin.Essentials;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using SoluiNet.Doppelkopf.Services;
-using SoluiNet.Doppelkopf.Views;
+﻿// <copyright file="MainActivity.cs" company="SoluiNet">
+// Copyright (c) SoluiNet. All rights reserved.
+// </copyright>
 
 namespace SoluiNet.Doppelkopf
 {
+    using System;
+    using Xamarin.Essentials;
+    using Xamarin.Forms;
+    using Xamarin.Forms.Xaml;
+    using SoluiNet.Doppelkopf.Services;
+    using SoluiNet.Doppelkopf.Views;
+
     public partial class App : Application
     {
         //TODO: Replace with *.azurewebsites.net url after deploying backend to Azure
