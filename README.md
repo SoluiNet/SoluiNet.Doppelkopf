@@ -1,1 +1,1 @@
-# SoluiNet.Doppelkopf
+# SoluiNet.GameOrganizer
